@@ -184,10 +184,129 @@ class PopulateUserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 ```
 
 ### The Front End & React
+With the backend roughed out and major endpoints ready to be used it was time for some of the team to start developing the frontend in React. Considering how powerful SQL databases can be - it was a good idea to start developing the front end before completing the backend as to tailor exactly what we wanted to be served to the front end. Our high level development of the frontend happened early on in the project along - to get a grasp of how the features hung together. We were all in agreement that developing mobile first functionality was important in regards to the user experience and the target audience we had in mind. Here we have some early wire-framing of the site layout -
 
+![site wireframe](README_files/wireframe.png)
+
+Even with a robust backend in place - we still wanted to manipulate and display the data we had in interesting ways, with a focus on interactivity with the content of the site. Some of the core features that needed this were the Users page - where you could navigate to other users pages and follow other users; video and user creation - where you could set genres or interests; and filtering multiple genres from multiple videos to get a unique list of videos.
+
+In this example when the follow button is clicked and the button is inactive - a new user object is created, the old user object is replaced with a splice and the userData array is updated with a function. Finally the follow is sent off the the backend with an Axios PUT to update the account of the current user - 
+
+```javascript
+if (user.isActive === '') {
+  const newUser = {
+    id: user.id,
+    username: user.username,
+    genres: user.genres,
+    isActive: 'button-is-active'
+  }
+  const newData = [...usersData]
+  newData.splice(index, 1, newUser)
+
+  const update = () => updateUsersData(newData)
+  update()
+
+  const newFollow = { following: [{ id: user.id }, ...currentUser] }
+
+  axios.put('/api/follow', newFollow, {
+    headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(resp => {
+      updateUser(resp.data.following)
+    })
+} 
+```
+
+Here we have the example of updating the users interests on the Create and Edit User pages - where when a genre button is clicked it checks the value sets the id for a function and updates the state of the button. It then calls a function to check if the genre selected exists in the genre form data - and adds or removes depending on the result. The form data object is then updated with the new genre array -
+
+```javascript
+  let id = null
+  const array = formData.genres
+ 
+    // An Entry for each Genre
+  if (e.target.value === 'Lifestyle') {
+    id = 12
+    if (lifeClass === '') {
+      lifeUpdate('genre-button-active')
+    } else {
+      lifeUpdate('')
+    }
+  }
+    // ...
+  addOrRemove(array, id)
+
+  function addOrRemove(array, id) {
+    const obj = { id: id }
+    var index = array.findIndex(x => x.id === id)
+    if (index === -1) {
+      array.push( obj )
+    } else {
+      array.splice(index, 1)
+    }
+
+    const data = {
+      ...formData,
+      genres: array
+    }
+
+    updateFormData(data)
+
+  }
+```
+The above piece of logic has been hard coded - to improve thisIwould map out each genre programmatically (in DRY fashion).
 
 
 ### Styling & SASS
+The look and feel of the site was key to a good user experience during early development we set out to develop a style guide in the form of fonts, color schemes, site layout and logos. This included developing a visual language that would be consistent across the site - buttons, forms and video windows styled in a clean and easy to use way.
+
+Custom variables played a helpful role in keeping the visuals the same, here is an example of the variables being set at the top of the scss document -
+```scss
+:root{
+  --background: #eeeeee;
+  --dark: #0B0C10;
+  --mid: #1F2833;
+  --light: #45A29E;
+  --extraLight: #66FCF1;
+  --grey: #C5C6C7;
+  --font: 'PT Sans', sans-serif;
+}
+```
+Here we have an example of the scss using these variables and keyframe animation -
+```scss
+.loader {
+  border: 16px solid var(--mid); /* Light grey */
+  border-top: 16px solid var(--extraLight); /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+```
+
+Here is an example of the registration and user pages to show the clean layout and design -
+
+![mobile_screenshot](README_files/mobile_screenshot.png)
 
 ## The Result!
+This was an interesting learning experience - getting to grips with a couple of new technologies, linking a Python backend to a React frontend and innovating on the code that we had been previously been taught. The site looks great, functions as designed and is easy to use. Personally, I am very happy with the result of the site and its features.
+
+Working in team came to be an easy and smooth process - with the use of Git and Github, well defined roles and individual feature development, with very few difficulties in resolving version conflicts. As a team, we shared the roles well - developing the core features of the backend before dividing and coding independently. 
+
+### Future Improvements
+
+For the future there are a few features thatIwould like to take the time to complete -
+- Add video upload functionality
+- Add Like functionality
+- Icons and avatars/thumbnails
+- Complete the 'Edit Video' feature
+
+Link --> [HowToTube 🤖](https://howtotube.herokuapp.com/)
+
+![home_page](README_files/project-4-screenshot.png)
+
 
