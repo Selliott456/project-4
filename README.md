@@ -3,18 +3,7 @@
 ### General Assembly Software Engineering Immersive
 
 # Project-4 - PostgreSQL, Python, Flask & React Full Stack Application - HowToTube, A Video Platform for Personal Development!
-### By [Laurence 🍳](https://github.com/ProDigresser) and Co-Contributors- [Sherryll 🎸](https://github.com/Selliott456) & [Dec 📷](https://github.com/dec1992). 
-
-         /__/\         /  /\         /__/\          ___        /  /\    
-         \  \:\       /  /::\       _\_ \:\        /  /\      /  /::\   
-          \__\:\     /  /:/\:\     /__/\ \:\      /  /:/     /  /:/\:\  
-       __ /  /::\   /  /:/  \:\   _\_ \:\ \:\    /  /:/     /  /:/  \:\ 
-     /__/\  /:/\:\ /__/:/ \__\:\ /__/\ \:\ \:\  /  /::\    /__/:/ \__\:\
-     \  \:\/:/__\/ \  \:\ /  /:/ \  \:\ \:\/:/ /__/:/\:\   \  \:\ /  /:/
-      \  \::/       \  \:\  /:/   \  \:\ \::/  \__\/  \:\   \  \:\  /:/ 
-       \  \:\        \  \:\/:/     \  \:\/:/        \  \:\   \  \:\/:/  
-        \  \:\        \  \::/       \  \::/          \__\/    \  \::/   
-         \__\/         \__\/         \__\/                     \__\/    
+### By [Sherryll ](https://github.com/Selliott456)  and Co-Contributors- [Laurence](https://github.com/ProDigresser) & [Dec ](https://github.com/dec1992). 
 
 ## The Overview
 
@@ -49,7 +38,7 @@ Find it here! --> [HowToTube 🤖](https://howtotube.herokuapp.com/)
 
 ## The App
 
-In order to work as a team and develop coherently - we took time looking at the different faucets that we thought were key to this app, and worked though the development process methodically. We took extra care with designing our Database with regards to the relationships between tables. These are the steps we had identified-
+In order to work as a team and develop coherently - we took time looking at the different facets that we thought were key to this app, and worked though the development process methodically. We took extra care with designing our Database with regards to the relationships between tables. These are the steps we had identified-
 
 1. Develop an understanding of what our user story would look like
 2. Design the database backend, including relationship diagrams 
@@ -61,10 +50,8 @@ In order to work as a team and develop coherently - we took time looking at the 
 ### Design & SQL Relationships
 
 Most of our first day was spent looking at what features we wanted to include in our app. I think that our vision for this app and how we saw people interacting with it informed what endpoints we wanted on our Database - which in turn allowed us to create a comprehensive relationship diagram. Getting a clear idea of the Database was key to a smooth development process down the line.
-<!-- !relationship diagram here -->
-<!-- \![]()  -->
 
-As for the user stroy we found that two pieces of design were important - firstly the ability to easily post videos, add comments and the ability to reply to comments. And secondly the ability to connect - or follow - other users in order to provide a user with a list of videos based on their interests and who they follow.
+As for the user story we found that two pieces of design were important - firstly the ability to easily post videos, add comments and the ability to reply to comments. And secondly the ability to connect - or follow - other users in order to provide a user with a list of videos based on their interests and who they follow.
 
 ### The Database
 
@@ -89,7 +76,7 @@ class BaseModel:
     db.session.commit()
 ```
 
-Here is an example of code that i am proud of - this is a segment of the User Model that involves a many to many relationship with other users - 
+Here is a segment of the User Model that involves a many to many relationship with other users - 
 
 ```python 
 class User(db.Model, BaseModel):
@@ -120,7 +107,7 @@ Finally here is a part of the user Model that checks the validity of a password 
 
 ### The Backend
 
-With the models in place the next step was to design the endpoints for our API - for that we started by designing the CRUD operators in the controllers and carefully designed our sterilizers and secure route. We spent most of this time designing sterilizers to make sure that we were serving all the right information to our front end whilst preventing infinite loops. 
+With the models in place the next step was to design the endpoints for our API - for that we started by designing the CRUD operators in the controllers and carefully designed our serializers and secure route. We spent most of this time designing serializers to make sure that we were serving all the right information to our front end whilst preventing infinite loops. 
 
 Here is an example in the video controller using a router and secure route decorator. Here a user can post a nested comment - the nested comment data is passed additional fields and the video that had been commented on is returned - 
 
@@ -184,7 +171,7 @@ class PopulateUserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 ```
 
 ### The Front End & React
-With the backend roughed out and major endpoints ready to be used it was time for some of the team to start developing the frontend in React. Considering how powerful SQL databases can be - it was a good idea to start developing the front end before completing the backend as to tailor exactly what we wanted to be served to the front end. Our high level development of the frontend happened early on in the project along - to get a grasp of how the features hung together. We were all in agreement that developing mobile first functionality was important in regards to the user experience and the target audience we had in mind. Here we have some early wire-framing of the site layout -
+With the backend roughed out and major endpoints ready to be used it was time for some of the team to start developing the frontend in React. Considering how powerful SQL databases can be - it was a good idea to start developing the front end before completing the backend to tailor exactly what we wanted to be served to the front end. Our high level development of the frontend happened early on in the project along - to grasp how the features hung together. We were all in agreement that developing mobile first functionality was important in regards to the user experience and the target audience we had in mind. Here we have some early wire-framing of the site layout -
 
 ![site wireframe](README_files/wireframe.png)
 
@@ -257,7 +244,7 @@ The above piece of logic has been hard coded - to improve thisIwould map out eac
 
 
 ### Styling & SASS
-The look and feel of the site was key to a good user experience during early development we set out to develop a style guide in the form of fonts, color schemes, site layout and logos. This included developing a visual language that would be consistent across the site - buttons, forms and video windows styled in a clean and easy to use way.
+The look and feel of the site was key to a good user experience during early development I set out to develop a style guide in the form of fonts, color schemes, site layout and logos. This included developing a visual language that would be consistent across the site - buttons, forms and video windows styled in a clean and easy to use way. I designed the logos in line with our chosen color pallete using Canva in order to give our project a degree of brading that made it stand out and memorable to the user. 
 
 Custom variables played a helpful role in keeping the visuals the same, here is an example of the variables being set at the top of the scss document -
 ```scss
@@ -288,10 +275,6 @@ Here we have an example of the scss using these variables and keyframe animation
 }
 ```
 
-Here is an example of the registration and user pages to show the clean layout and design -
-
-![mobile_screenshot](README_files/mobile_screenshot.png)
-
 ## The Result!
 This was an interesting learning experience - getting to grips with a couple of new technologies, linking a Python backend to a React frontend and innovating on the code that we had been previously been taught. The site looks great, functions as designed and is easy to use. Personally, I am very happy with the result of the site and its features.
 
@@ -306,7 +289,5 @@ For the future there are a few features thatIwould like to take the time to comp
 - Complete the 'Edit Video' feature
 
 Link --> [HowToTube 🤖](https://howtotube.herokuapp.com/)
-
-![home_page](README_files/project-4-screenshot.png)
 
 
