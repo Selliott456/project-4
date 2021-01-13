@@ -1,7 +1,6 @@
 ### General Assembly Software Engineering Immersive
 
 # Project-4 - PostgreSQL, Python, Flask & React Full Stack Application - HowToTube, A Video Platform for Personal Development!
-### By [Sherryll ](https://github.com/Selliott456)  and Co-Contributors- [Laurence](https://github.com/ProDigresser) & [Dec ](https://github.com/dec1992). 
 
 ## The Overview
 
@@ -169,9 +168,7 @@ class PopulateUserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 ```
 
 ### The Front End & React
-With the backend roughed out and major endpoints ready to be used it was time for some of the team to start developing the frontend in React. Considering how powerful SQL databases can be - it was a good idea to start developing the front end before completing the backend to tailor exactly what we wanted to be served to the front end. Our high level development of the frontend happened early on in the project along - to grasp how the features hung together. We were all in agreement that developing mobile first functionality was important in regards to the user experience and the target audience we had in mind. Here we have some early wire-framing of the site layout -
-
-![site wireframe](README_files/wireframe.png)
+With the backend roughed out and major endpoints ready to be used it was time for some of the team to start developing the frontend in React. Considering how powerful SQL databases can be - it was a good idea to start developing the front end before completing the backend to tailor exactly what we wanted to be served to the front end. Our high level development of the frontend happened early on in the project along - to grasp how the features hung together. We were all in agreement that developing mobile first functionality was important in regards to the user experience and the target audience we had in mind.
 
 Even with a robust backend in place - we still wanted to manipulate and display the data we had in interesting ways, with a focus on interactivity with the content of the site. Some of the core features that needed this were the Users page - where you could navigate to other users pages and follow other users; video and user creation - where you could set genres or interests; and filtering multiple genres from multiple videos to get a unique list of videos.
 
