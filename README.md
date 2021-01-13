@@ -1,5 +1,3 @@
-# ![GALogo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) 
-
 ### General Assembly Software Engineering Immersive
 
 # Project-4 - PostgreSQL, Python, Flask & React Full Stack Application - HowToTube, A Video Platform for Personal Development!
@@ -280,14 +278,11 @@ This was an interesting learning experience - getting to grips with a couple of 
 
 Working in team came to be an easy and smooth process - with the use of Git and Github, well defined roles and individual feature development, with very few difficulties in resolving version conflicts. As a team, we shared the roles well - developing the core features of the backend before dividing and coding independently. 
 
-### Future Improvements
+### Key Learnings
 
-For the future there are a few features thatIwould like to take the time to complete -
-- Add video upload functionality
-- Add Like functionality
-- Icons and avatars/thumbnails
-- Complete the 'Edit Video' feature
+This project took a lot more work than the previous ones. My biggest learning here was to set out table relationships very early on in the wireframing. This allowed us to easily see where we needed join tables and what had to be delcared as primary and secondary keys. This was the first time I have worked with PostgreSQL, which was really interesting. I felt like there was a bit more strusture to this backend than there was with the NoSQL database we used in our last Express project, which I liked. 
 
-Link --> [HowToTube 🤖](https://howtotube.herokuapp.com/)
+
+Link --> [HowToTube](https://howtotube.herokuapp.com/)
 
 
